@@ -11,7 +11,42 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    {% block body %} {% endblock %} 
+    <!--A home bar made with bootstrap 5. Tutorial Link https://www.youtube.com/watch?v=7AT1X9Z41sA-->
+    <!--The Whole navbar is kept in a nav html tag-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <!-- Putting a container here inorder to wrap the content in a box whose size I can control. The xxl part tells 
+        navbar that if the screen is smaller than xxl it should occupy the entire width -->
+        <div class="container-xxl">
+            <!-- Adding the logo of my website which when clicked should redirect user to homepage -->
+            <a href="/" class="navbar-brand">
+                <p  class="fs-5 fw-bold">Roman Njoroge</p>
+            </a>
+            <!-- When the screen size shrinks the content in the navbar could disspear. To avoid this we
+            tell bootstrap that it should collapse the navbar into a humburger menu using data-bs-toggle="collapse"
+            and we tell it what to collapse with data-bs-target attribute. The aria attributes help screen readers-->
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle Navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="row">
+                <div class="col-6">
+                    <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+                        <ul class="navbar-nav nav-fill nav-tabs">
+                            <li class="nav-item">
+                                <a href="/portfolio" class="nav-link">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/blog" class="nav-link">Blogs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/gallery" class="nav-link">Gallery</a>
+                            </li>
+                        </ul>
+                    </div> 
+                </div>
+            </div>                 
+        </div>
+    </nav>
+    {% block body %} {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
